@@ -1,7 +1,7 @@
 import unittest
-from TestCase.testcase1 import number1
-from TestCase.testcase2 import number2
-from TestCase.testcase3 import number3
+from ..TestCase.testcase1 import number1
+from ..TestCase.testcase2 import number2
+from ..TestCase.testcase3 import number3
 
 if __name__ == '__main__':
     suite=unittest.TestSuite()
