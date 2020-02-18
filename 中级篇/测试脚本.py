@@ -1,6 +1,6 @@
-from .browser import Browser
-from .login import Login
-from .usefile import Openfile
+from 中级篇.browser import Browser
+from 中级篇.login import Login
+from 中级篇.usefile import Openfile
 import unittest
 from time import sleep
 
