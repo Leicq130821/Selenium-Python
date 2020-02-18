@@ -1,6 +1,6 @@
-from browser import Browser
-from login import Login
-from usefile import Openfile
+from .browser import Browser
+from .login import Login
+from .usefile import Openfile
 import unittest
 from time import sleep
 

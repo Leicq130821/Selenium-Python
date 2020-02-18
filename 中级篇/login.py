@@ -1,7 +1,7 @@
 from time import sleep
 import pymysql
 import sys
-from saveresult import SaveResult
+from .saveresult import SaveResult
 import xlrd
 class Login:
     def login_sql(driver,user):
