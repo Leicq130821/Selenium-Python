@@ -1,6 +1,6 @@
-from 中级篇.browser import Browser
-from 中级篇.login import Login
-from 中级篇.usefile import Openfile
+from 基础.封装登录功能.browser import Browser
+from 基础.封装登录功能.login import Login
+from 基础.封装登录功能.usefile import Openfile
 import unittest
 from time import sleep
 
