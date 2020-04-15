@@ -1,40 +1,37 @@
 from selenium import webdriver
+from time import sleep
+
 browser=webdriver.Ie()
-browser.get('https://www.baidu.com/')
-#链接的文本
-text = browser.find_element_by_link_text('新闻').text
-browser.get('http://localhost:7003/')
-username = browser.find_element_by_css_selector('#username')
-password = browser.find_element_by_css_selector('#password')
-button = browser.find_element_by_tag_name('button')
-#元素的大小
-size = username.size
-#元素的位置
-location = password.location
-#元素的属性值
-attribute=username.get_attribute('class')
-#元素的标签名
-tag=password.tag_name
-#当期页面的标题
-title=browser.title
-#当前页面的地址
-url=browser.current_url
-#元素是否可用
-shiyong=button.is_enabled()
-#元素是否隐藏
-xainshi=button.is_displayed()
-#元素是否被选中
-xuanzhong=button.is_selected()
+browser.maximize_window()
+browser.implicitly_wait(5)
+browser.get('http://localhost:9087')
+username=browser.find_element_by_id('username')
+password=browser.find_element_by_id('password')
+login=browser.find_element_by_tag_name('button')
+# 元素某个元素的值。
+print('class属性的值:',login.get_attribute('class'))
+# 元素的标签名称。
+print('元素的标签名称:',login.tag_name)
+# 元素的尺寸。
+print('元素的尺寸(像素):',login.size)
+# 元素的文本信息。
+print('元素的文本信息:',login.text)
+# 元素的坐标。
+print('元素的坐标(像素):',login.location)
+# 元素是否可见。
+print('元素是否可见:',login.is_displayed())
+# 元素是否可用。
+print('元素是否可用:',login.is_enabled())
+# 元素是否被选中。
+print('元素是否被选中:',login.is_selected())
+# 输入文本信息。
+username.send_keys('admin')
+password.send_keys('000000')
+# 清除文本信息。
+password.clear()
+password.send_keys('000000')
+# 点击。
+login.click()
 
-print('文本为：',text)
-print('大小为：',size)
-print('元素的位置为：',location)
-print('账号的class属性值为',attribute)
-print('密码的标签为',tag)
-print('页面的标题为',title)
-print('当前页面的地址为',url)
-print('密码是否可使用',shiyong)
-print('密码是否显示',xainshi)
-print('密码是否被选中',xuanzhong)
-
+sleep(5)
 browser.quit()
