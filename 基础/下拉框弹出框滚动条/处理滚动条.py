@@ -1,22 +1,23 @@
-from time import sleep
 from selenium import webdriver
+from time import sleep
 
-browser = webdriver.Ie()
+browser=webdriver.Ie()
 browser.maximize_window()
 browser.implicitly_wait(5)
-browser.get('http://localhost/biz/user-login.html/')
-browser.find_element('css selector','#account').send_keys('admin')
-browser.find_element('css selector',"input[name='password']").send_keys('000000')
-browser.find_element('css selector','#submit').click()
-sleep(2)
-JS1="window.scrollTo(0,1000)"
-JS2="window.scrollTo(0,0)"
-browser.execute_script(JS1)
-sleep(2)
-browser.execute_script(JS2)
-sleep(2)
-browser.find_element('css selector','.dropdown-toggle').click()
-browser.find_element_by_link_text('签退')
+browser.get('http://localhost:9087')
+browser.find_element_by_id('username').send_keys('admin')
+browser.find_element_by_id('password').send_keys('000000')
+browser.find_element_by_tag_name('button').click()
+sleep(3)
+# webdriver没有提供直接控制滚动条的方法，需要借助js脚本实现对滚动条的控制。
+# 控制滚动条的js脚本：window.scrollTo(x,y)，x为左右移动，y为上下移动，x/y皆为像素。
+browser.switch_to.frame('content') # 需要注意滚动条所在的表单。
+js='window.scrollTo(0,1000)'  # 上下滚动条拉到底部。
+# 使用浏览器对象的execute_script()方法执行js脚本。
+browser.execute_script(js)
+sleep(3)
+js='window.scrollTo(0,0)' # 滚动条回到初始位置。
+browser.execute_script(js)
 
-sleep(5)
+sleep(3)
 browser.quit()
