@@ -1,0 +1,47 @@
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.support.select import Select
+
+
+Browser=webdriver.Ie()
+Browser.maximize_window()
+Browser.implicitly_wait(5)
+Browser.get('http://localhost:9087')
+Browser.find_element_by_name('username').send_keys('admin')
+Browser.find_element_by_id('password').clear()
+Browser.find_element_by_id('password').send_keys('000000')
+Browser.find_element_by_tag_name('button').click()
+Browser.switch_to.frame('topFrame')
+Browser.find_element_by_id('mmenu8').click()
+Browser.switch_to.default_content()
+Browser.switch_to.frame('leftFrame')
+Browser.switch_to.frame('leftiframe')
+Browser.find_element_by_id('itemTextLink5').click()
+Browser.find_element_by_css_selector('#itemTextLink12').click()
+Browser.switch_to.default_content()
+Browser.switch_to.frame('content')
+Browser.find_element_by_name('btnNew').click()
+handles=Browser.window_handles
+print(handles)
+Browser.switch_to.window(handles[1])
+sleep(2)
+SelectElement1=Browser.find_element_by_name('proj_id')
+Options1=Select(SelectElement1)
+Options1.select_by_index(1)
+Browser.find_element_by_name('proj_check_seq').send_keys('XMSHLS0001')
+Browser.find_element_by_name('proj_check_comnt').send_keys('项目审核通过')
+SelectElement2=Browser.find_element_by_name('checker_empno_name')
+Options2=Select(SelectElement2)
+Options2.select_by_index(1)
+Browser.find_element_by_name('checker_mem_role').send_keys('项目经理')
+Browser.find_element_by_name('checker_mem_check_comnt').send_keys('审核人员通过')
+Browser.find_element_by_name('reg_person').send_keys('李明')
+Browser.find_element_by_name('reg_org').send_keys('金谷信托')
+Browser.find_element_by_name('reg_tm_picker').send_keys('20200416')
+Browser.find_elements_by_name('btnSave')[0].click()
+Browser.switch_to.window(handles[0])
+Alert=Browser.switch_to.alert
+Alert.accept()
+sleep(5)
+
+Browser.quit()
