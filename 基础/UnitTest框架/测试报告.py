@@ -2,7 +2,7 @@ from HTMLTestRunner import HTMLTestRunner
 import unittest
 import time
 
-suite=unittest.defaultTestLoader.discover("./TestCase",pattern="test*.py")
+suite=unittest.defaultTestLoader.discover("./Case",pattern="test*.py")
 
 if __name__ == '__main__':
     #定义报告的文件目录
