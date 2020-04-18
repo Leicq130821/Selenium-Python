@@ -18,8 +18,8 @@ print(row)
 col=sheet.col(0)
 print(col)
 # 获取某一行的某列数据。
-print(row[1])
+print(row[1].value)
 # 获取某一列的某行数据。
-print(col[0])
+print(col[0].value)
 # 通过sheet获取某行某列数据。
 print(sheet.cell(2,1).value)
