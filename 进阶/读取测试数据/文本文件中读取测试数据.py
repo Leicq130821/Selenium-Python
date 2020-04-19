@@ -1,6 +1,6 @@
-from 基础.封装登录退出功能.Browser import Browser
-from 基础.封装登录退出功能.Login import Login
-from 基础.封装登录退出功能.Logout import Logout
+from 进阶.封装登录退出功能.Browser import Browser
+from 进阶.封装登录退出功能.Login import Login
+from 进阶.封装登录退出功能.Logout import Logout
 
 if __name__ == '__main__':
     # 测试数据可以通过文本进行读取。
