@@ -9,6 +9,10 @@ class Test(unittest.TestCase):
     # 后置函数。
     def tearDownClass(cls):
         print('全部测试案例执行完毕后再执行！')
+    def setUp(self):
+        print('每个案例的前置函数执行！')
+    def tearDown(self):
+        print('每个案例的后置函数执行！')
     def test1(self):
         print('执行测试1')
     def test2(self):
