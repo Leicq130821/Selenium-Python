@@ -21,7 +21,7 @@ if __name__ == '__main__':
         # 实例化数据库索引。
         with sql.cursor() as cursor:
             # 查询数据。
-            cursor.execute('SELECT FUNCITON_ELEMENT_SELECT,FUNCITON_ELEMENT_SELECT_KEY,FUNCITON_ELEMENT_ACTION,FUNCITON_ELEMENT_ACTION_KEY FROM DICTPARAM WHERE FUNCTION_ID=1')
+            cursor.execute('SELECT ELEMENT_SELECT,ELEMENT_SELECT_KEY,ELEMENT_ACTION,ELEMENT_ACTION_KEY FROM ELEMENTPARAM WHERE PAGE_ID=1')
             # 从索引中取出所查的数据（数据结果为一个列表）。
             list=cursor.fetchall()
     login(*list)
